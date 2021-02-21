@@ -63,6 +63,7 @@ namespace SalesTaxesCalculator.Services.Basket
             this.Subtotal = Math.Round(this.Subtotal,2);
             this.Taxes += product.ImportTaxes + product.VatTaxes;
             this.Taxes = Math.Round(this.Taxes, 2);
+
             
 
             return true;

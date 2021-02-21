@@ -53,6 +53,7 @@ namespace SalesTaxesCalculator.Services.Basket.Tests
             Assert.IsTrue(basket.Subtotal == 67.98);
             Assert.IsTrue(basket.Total == 74.68);
             Assert.IsTrue(basket.Taxes == 6.7);
+
         }
 
     }
