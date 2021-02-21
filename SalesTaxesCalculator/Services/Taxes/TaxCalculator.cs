@@ -39,7 +39,7 @@ namespace SalesTaxesCalculator.Services.Taxes
                 {
                     return 0;
                 }
-                return ceiling / 20;
+                return Math.Round(ceiling / 20,2);
             }
 
 
