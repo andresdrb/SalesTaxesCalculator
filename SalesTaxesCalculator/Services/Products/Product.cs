@@ -2,6 +2,9 @@ using SalesTaxesCalculator.Services.Taxes;
 
 namespace SalesTaxesCalculator.Services.Products
 {
+    /// <summary>
+    /// Class that holds product data
+    /// </summary>
     public class Product
     {
 

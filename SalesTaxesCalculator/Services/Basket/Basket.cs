@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace SalesTaxesCalculator.Services.Basket
 {
+    /// <summary>
+    /// Class meant to hold the products on the shopping backet
+    /// </summary>
     public class Basket
     {
 
@@ -43,32 +46,41 @@ namespace SalesTaxesCalculator.Services.Basket
             set { taxes = value; }
         }
 
-        public bool AddItem(Product product)
+        /// <summary>
+        /// Add an item into the basket and recalculate the basket total and taxes accordingly
+        /// </summary>
+        /// <param name="product">The product to be added to the basket</param>
+        /// <returns>True if successfull, false if failed</returns>
+        public void AddItem(Product product)
         {
-            
-            if (items.ContainsKey(product.ProductId))
+
+            try
             {
-                items[product.ProductId].Count++;
-                
+                if (items.ContainsKey(product.ProductId))
+                {
+                    items[product.ProductId].Count++;
+
+                }
+                else
+                {
+                    BasketItem item = new BasketItem(product, 1);
+                    items.Add(product.ProductId, item);
+                }
+
+
+
+                this.Subtotal += product.PriceSalesExclusive;
+                this.Subtotal = Math.Round(this.Subtotal, 2);
+                this.Taxes += product.ImportTaxes + product.VatTaxes;
+                this.Taxes = Math.Round(this.Taxes, 2);
             }
-            else
+            catch (Exception ex)
             {
-                BasketItem item = new BasketItem(product, 1);
-                items.Add(product.ProductId, item);
+                //TODO: Implement logging
+                throw;
             }
 
-            
-
-            this.Subtotal += product.PriceSalesExclusive;
-            this.Subtotal = Math.Round(this.Subtotal,2);
-            this.Taxes += product.ImportTaxes + product.VatTaxes;
-            this.Taxes = Math.Round(this.Taxes, 2);
-
-            
-
-            return true;
-
-
+           
         }
 
 

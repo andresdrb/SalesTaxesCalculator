@@ -11,10 +11,18 @@ namespace SalesTaxesCalculator.Services.Taxes
             Reduced,
             Basic
         }
+
+    /// <summary>
+    /// Manages Taxes configuration
+    /// </summary>
     public static class TaxConfiguration
     {
 
-
+        /// <summary>
+        /// Get the configuration value for a given tax rate
+        /// </summary>
+        /// <param name="vatType">The tax rate to retrieve the configuration for</param>
+        /// <returns></returns>
         public static double GetVATTaxRate(VATType vatType)
         {
 
@@ -34,6 +42,11 @@ namespace SalesTaxesCalculator.Services.Taxes
             return 0;
         }
 
+
+        /// <summary>
+        /// Retrieves the Imports Tax rate configuration
+        /// </summary>
+        /// <returns></returns>
         public static double GetImportsTaxRate()
         {
 

@@ -8,6 +8,10 @@ namespace SalesTaxesCalculator.Services.Printer
 {
     public static class Printer
     {
+        /// <summary>
+        /// Prints the Contents and totals of a given basket
+        /// </summary>
+        /// <param name="basket">The basket to be printed</param>
         public static void PrintBasket(Basket.Basket basket)
         {
             foreach (var item in basket.Items)
